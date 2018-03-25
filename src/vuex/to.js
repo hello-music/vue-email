@@ -11,19 +11,24 @@ const removeAtIndex = (emails, index) => [
   ...emails.slice(index + 1, emails.length)
 ];
 
+export const MODULE_NAME = 'to';
+export const getActionName = (moduleName, actionName) =>
+  `${moduleName}/${actionName}`;
 // store data
 /**************************************************/
-const defaultState = [];
+const defaultState = {
+  emails: []
+};
 
 const state = defaultState;
 
 const getters = {
-  emails: state => state
+  emails: state => state.emails
 };
 
-const ADD = 'add';
-const UPDATE = 'update';
-const REMOVE = 'remove';
+export const ADD = 'add';
+export const UPDATE = 'update';
+export const REMOVE = 'remove';
 
 const actions = {
   add(context, email) {
@@ -39,13 +44,15 @@ const actions = {
 
 const mutations = {
   add(state, email) {
-    state = [...state, email];
+    console.log('called add: ', email); // eslint-disable-line no-console
+    state.emails = [...state.emails, email];
+    console.log('state: ', email); // eslint-disable-line no-console
   },
   update(state, { index, email }) {
-    state = insertAtIndex(state, index, email);
+    state.emails = insertAtIndex(state.emails, index, email);
   },
   remove(state, index) {
-    state = removeAtIndex(state, index);
+    state.emails = removeAtIndex(state.emails, index);
   }
 };
 

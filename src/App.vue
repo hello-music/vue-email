@@ -18,3 +18,6 @@ export default {
   store
 };
 </script>
+<style lang="scss">
+@import '../node_modules/basscss/css/basscss.min.css';
+</style>

@@ -1,11 +1,15 @@
 <template>
       <div>
-          write email
+          <EmailsEditor />
       </div>
 </template>
 
 <script>
+import EmailsEditor from '../../components/emailsEditor/EmailsEditor.vue';
 export default {
-  name: 'Email'
+  name: 'Email',
+  components: {
+    EmailsEditor
+  }
 };
 </script>
