@@ -12,8 +12,6 @@ const removeAtIndex = (emails, index) => [
 ];
 
 export const MODULE_NAME = 'to';
-export const getActionName = (moduleName, actionName) =>
-  `${moduleName}/${actionName}`;
 // store data
 /**************************************************/
 const defaultState = {
@@ -44,9 +42,7 @@ const actions = {
 
 const mutations = {
   add(state, email) {
-    console.log('called add: ', email); // eslint-disable-line no-console
     state.emails = [...state.emails, email];
-    console.log('state: ', email); // eslint-disable-line no-console
   },
   update(state, { index, email }) {
     state.emails = insertAtIndex(state.emails, index, email);
