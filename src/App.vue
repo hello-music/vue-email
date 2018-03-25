@@ -20,4 +20,8 @@ export default {
 </script>
 <style lang="scss">
 @import '../node_modules/basscss/css/basscss.min.css';
+body {
+  font-family: 'SFNSText', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
 </style>
