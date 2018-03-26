@@ -5,24 +5,26 @@ import {
   MODULE_NAME
 } from '../vuex/ajax';
 import { getActionName } from './helper';
-
-const fakeSuccess = () =>
+// helpers - mock response promises
+/**************************************************/
+export const fakeSuccess = () =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve();
     }, 1000);
   });
 
-// const fakeFail = () =>
-//   new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       reject(new Error('fail'));
-//     }, 1000);
-//   });
-
-const ajax = (dispatch, successAction = '') => {
+export const fakeFail = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('fail'));
+    }, 1000);
+  });
+// generic ajax gateway
+/**************************************************/
+const ajax = (dispatch, fakePromise, successAction = '') => {
   dispatch(getActionName(MODULE_NAME, LOADING));
-  return fakeSuccess()
+  return fakePromise()
     .then(response => {
       if (successAction !== '') {
         dispatch(successAction, response.data);

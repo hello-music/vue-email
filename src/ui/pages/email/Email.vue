@@ -69,7 +69,13 @@ import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
 import EmailHeader from './EmailHeader.vue';
 import { ajaxSendEmail } from '../../../services/email.service';
-
+import { fakeFail, fakeSuccess } from '../../../helpers/ajax';
+// helper
+/**************************************************/
+const getFakePromise = demoQuery =>
+  demoQuery === 'error' ? fakeFail : fakeSuccess;
+// component
+/**************************************************/
 export default {
   name: 'Email',
   components: {
@@ -127,7 +133,10 @@ export default {
       this.updateContentVuex(value.trim());
     },
     sendEmail() {
-      ajaxSendEmail(this.$store.dispatch);
+      ajaxSendEmail(
+        this.$store.dispatch,
+        getFakePromise(this.$route.query.demo)
+      );
     }
   }
 };

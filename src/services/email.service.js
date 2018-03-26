@@ -14,9 +14,9 @@ import {
   MODULE_NAME as SUBJECT_MODULE_NAME
 } from '../vuex/subject';
 import { getActionName } from '../helpers/helper';
-export const ajaxSendEmail = dispatch => {
+export const ajaxSendEmail = (dispatch, fakePromise) => {
   //send data
-  return ajax(dispatch).then(() => {
+  return ajax(dispatch, fakePromise).then(() => {
     //clear data
     dispatch(getActionName(TO_MODULE_NAME, TO_RESET));
     dispatch(getActionName(CC_MODULE_NAME, CC_RESET));

@@ -1,20 +1,22 @@
 import { insertAtIndex, isEmail, removeAtIndex } from '../helpers/helper';
 
 export const MODULE_NAME = 'to';
-// store data
+// store state
 /**************************************************/
 const defaultState = {
   emails: []
 };
 
 const state = defaultState;
-
+// getters
+/**************************************************/
 const getters = {
   emails: ({ emails }) => emails,
   toEmailsAreAllValid: ({ emails }) =>
     emails.length !== 0 && emails.filter(email => !isEmail(email)).length === 0
 };
-
+// actions
+/**************************************************/
 export const ADD = 'add';
 export const UPDATE = 'update';
 export const REMOVE = 'remove';
@@ -34,7 +36,8 @@ const actions = {
     return context.commit(RESET);
   }
 };
-
+// mutations
+/**************************************************/
 const mutations = {
   [ADD](state, email) {
     state.emails = [...state.emails, email];
@@ -49,7 +52,8 @@ const mutations = {
     state.emails = [];
   }
 };
-
+// export
+/**************************************************/
 export default {
   namespaced: true,
   state,

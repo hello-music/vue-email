@@ -1,16 +1,18 @@
 export const MODULE_NAME = 'content';
-// store data
+// store state
 /**************************************************/
 const defaultState = {
   content: ''
 };
 
 const state = defaultState;
-
+// getters
+/**************************************************/
 const getters = {
   content: state => state.content
 };
-
+// actions
+/**************************************************/
 export const UPDATE = 'update';
 export const RESET = 'reset';
 
@@ -22,7 +24,8 @@ const actions = {
     return context.commit(RESET);
   }
 };
-
+// mutations
+/**************************************************/
 const mutations = {
   [UPDATE](state, content) {
     state.content = content;
@@ -31,7 +34,8 @@ const mutations = {
     state.content = '';
   }
 };
-
+// export
+/**************************************************/
 export default {
   namespaced: true,
   state,
