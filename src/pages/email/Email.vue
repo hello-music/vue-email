@@ -18,6 +18,10 @@
                   v-on:new-email="addBccEmail"
                   v-on:remove-email="removeBccEmail"
           />
+          <div class="flex flex-wrap items-center">
+              <InputTitle :title="'Subject:'" />
+              <input class="flex-auto" v-on:input="updateSubject"/>
+          </div>
       </div>
 </template>
 
@@ -38,7 +42,12 @@ import {
   ADD as ADD_BCC,
   REMOVE as REMOVE_BCC
 } from '../../vuex/bcc';
+import {
+  MODULE_NAME as SUBJECT_MODULE,
+  UPDATE as UPDATE_SUBJECT
+} from '../../vuex/subject';
 import EmailsEditor from '../../components/emailsEditor/EmailsEditor.vue';
+import InputTitle from '../../components/InputTitle.vue';
 //helper
 /***************************************************/
 const getActionName = (moduleName, actionName) => `${moduleName}/${actionName}`;
@@ -46,7 +55,8 @@ const getActionName = (moduleName, actionName) => `${moduleName}/${actionName}`;
 export default {
   name: 'Email',
   components: {
-    EmailsEditor
+    EmailsEditor,
+    InputTitle
   },
   computed: {
     ...mapGetters(TO_MODULE, { toEmails: 'emails' }),
@@ -71,6 +81,12 @@ export default {
     },
     removeBccEmail(index) {
       this.$store.dispatch(getActionName(BCC_MODULE, REMOVE_BCC), index);
+    },
+    updateSubject({ target: { value } }) {
+      this.$store.dispatch(
+        getActionName(SUBJECT_MODULE, UPDATE_SUBJECT),
+        value
+      );
     }
   }
 };

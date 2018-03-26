@@ -2,7 +2,7 @@
         <div class="flex flex-wrap items-center emails-editor"
              v-on:click="startEditing"
         >
-            <span class="title">{{title}}</span>
+            <InputTitle :title="title" />
             <EmailsEditorLabel v-for="(email,index) in emails" v-bind:key="index"
                                :email="email"
                                :index="index"
@@ -16,11 +16,13 @@
 <script>
 import EmailsEditorInput from './EmailsEditorInput.vue';
 import EmailsEditorLabel from './EmailsEditorLabel.vue';
+import InputTitle from '../InputTitle.vue';
 export default {
   name: 'EmailsEditor',
   components: {
     EmailsEditorInput,
-    EmailsEditorLabel
+    EmailsEditorLabel,
+    InputTitle
   },
   props: {
     emails: Array,
@@ -55,10 +57,5 @@ export default {
 .emails-editor {
   font-size: 15px;
   cursor: text;
-}
-.title {
-  color: #999;
-  margin-right: 10px;
-  cursor: default;
 }
 </style>
