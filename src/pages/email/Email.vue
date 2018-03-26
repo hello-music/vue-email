@@ -1,6 +1,6 @@
 <template>
     <div>
-        <EmailHeader />
+        <EmailHeader :readyToSend="isReady"/>
       <div class="flex flex-column form-container">
           <EmailFormInputGroup>
               <EmailsEditor
@@ -81,9 +81,21 @@ export default {
     EmailHeader
   },
   computed: {
+    //    fetch emails
     ...mapGetters(TO_MODULE, { toEmails: 'emails' }),
     ...mapGetters(CC_MODULE, { ccEmails: 'emails' }),
-    ...mapGetters(BCC_MODULE, { bccEmails: 'emails' })
+    ...mapGetters(BCC_MODULE, { bccEmails: 'emails' }),
+    //    fetch if valid
+    ...mapGetters(TO_MODULE, ['toEmailsAreAllValid']),
+    ...mapGetters(BCC_MODULE, ['bccEmailsAreAllValid']),
+    ...mapGetters(CC_MODULE, ['ccEmailsAreAllValid']),
+    isReady: function() {
+      return (
+        this.toEmailsAreAllValid &&
+        this.bccEmailsAreAllValid &&
+        this.ccEmailsAreAllValid
+      );
+    }
   },
   methods: {
     addToEmail(email) {

@@ -1,4 +1,4 @@
-import { insertAtIndex, removeAtIndex } from '../helpers/helper';
+import { insertAtIndex, isEmail, removeAtIndex } from '../helpers/helper';
 
 export const MODULE_NAME = 'cc';
 // store data
@@ -10,7 +10,9 @@ const defaultState = {
 const state = defaultState;
 
 const getters = {
-  emails: state => state.emails
+  emails: ({ emails }) => emails,
+  ccEmailsAreAllValid: ({ emails }) =>
+    emails.length === 0 || emails.filter(email => !isEmail(email)).length === 0
 };
 
 export const ADD = 'add';
