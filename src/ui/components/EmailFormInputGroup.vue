@@ -15,7 +15,6 @@ export default {
 
 <style scoped>
 .email-form-input-group {
-  min-height: 33px;
   border-bottom: 1px solid #eaeaea;
 }
 </style>

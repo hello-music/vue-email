@@ -29,7 +29,7 @@
           <EmailFormInputGroup>
               <div class="flex flex-wrap items-center">
                   <InputTitle :title="'Subject:'" />
-                  <input class="flex-auto" v-on:input="updateSubject" :value="subject"/>
+                  <input class="flex-auto subject" v-on:input="updateSubject" :value="subject"/>
               </div>
           </EmailFormInputGroup>
           <div class="flex flex-auto container">
@@ -144,6 +144,9 @@ textarea {
   font-size: 15px;
 }
 .form-container {
-  height: calc(100vh - 44px);
+  height: calc(100vh - 55px);
+}
+.subject {
+  min-height: 50px;
 }
 </style>

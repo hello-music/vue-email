@@ -59,5 +59,6 @@ export default {
 <style scoped>
 .emails-editor {
   cursor: text;
+  min-height: 50px;
 }
 </style>
