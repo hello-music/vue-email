@@ -4,6 +4,7 @@ import to from './to';
 import cc from './cc';
 import bcc from './bcc';
 import subject from './subject';
+import content from './content';
 
 Vue.use(Vuex);
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     to,
     cc,
     bcc,
-    subject
+    subject,
+    content
   }
 });
 

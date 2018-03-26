@@ -1,5 +1,5 @@
 <template>
-        <div class="flex flex-wrap items-center emails-editor"
+        <div class="flex flex-wrap flex-auto items-center emails-editor"
              v-on:click="startEditing"
         >
             <InputTitle :title="title" />
@@ -55,7 +55,6 @@ export default {
 
 <style scoped>
 .emails-editor {
-  font-size: 15px;
   cursor: text;
 }
 </style>

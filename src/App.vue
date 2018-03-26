@@ -23,7 +23,8 @@ export default {
 body {
   font-family: 'SFNSText', 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 15px;
+  margin: 0;
 }
 input {
   border: none;
@@ -31,5 +32,9 @@ input {
   font-size: 15px;
   font-weight: 300;
   margin-left: 10px;
+}
+.container {
+  padding-left: 13px;
+  padding-right: 13px;
 }
 </style>
