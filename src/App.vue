@@ -23,5 +23,6 @@ export default {
 body {
   font-family: 'SFNSText', 'Helvetica Neue', sans-serif;
   font-weight: 300;
+  font-size: 12px;
 }
 </style>

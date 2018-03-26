@@ -56,7 +56,6 @@ export default {
 }
 .email {
   color: #007aff;
-  font-size: 15px;
 }
 .remove-button {
   visibility: hidden;

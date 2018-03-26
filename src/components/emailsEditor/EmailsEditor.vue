@@ -1,10 +1,15 @@
 <template>
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap items-center emails-editor"
+             v-on:click="startEditing"
+        >
+            <span class="title">{{title}}</span>
             <EmailsEditorLabel v-for="(email,index) in emails" v-bind:key="index"
                                :email="email"
                                :index="index"
                                v-on:remove-email="removeEmail(index)"/>
-            <div><EmailsEditorInput v-on:new-email="processNewEmail"/></div>
+            <EmailsEditorInput v-on:new-email="processNewEmail"
+                               :isEditing="isEditing"
+                               v-on:end-editing="endEditing" />
         </div>
 </template>
 
@@ -18,11 +23,13 @@ export default {
     EmailsEditorLabel
   },
   props: {
-    emails: Array
+    emails: Array,
+    title: String
   },
   data() {
     return {
-      emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 }
+      emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 },
+      isEditing: false
     };
   },
   methods: {
@@ -33,7 +40,25 @@ export default {
     },
     removeEmail(index) {
       this.$emit('remove-email', index);
+    },
+    startEditing() {
+      this.isEditing = true;
+    },
+    endEditing() {
+      this.isEditing = false;
     }
   }
 };
 </script>
+
+<style scoped>
+.emails-editor {
+  font-size: 15px;
+  cursor: text;
+}
+.title {
+  color: #999;
+  margin-right: 10px;
+  cursor: default;
+}
+</style>

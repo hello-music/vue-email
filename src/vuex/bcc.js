@@ -1,6 +1,6 @@
 import { insertAtIndex, removeAtIndex } from '../helpers/helper';
 
-export const MODULE_NAME = 'to';
+export const MODULE_NAME = 'bcc';
 // store data
 /**************************************************/
 const defaultState = {

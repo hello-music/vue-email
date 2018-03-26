@@ -1,18 +1,21 @@
 <template>
-            <input
-                    type="email"
-                    v-autowidth="emailInputConfig"
-                    v-model="email"
-                    placeholder="Watch me change size with my content!"
-                    v-on:keyup.enter="processNewEmail"
-                    v-on:blur="processNewEmail"
-                    v-on:keydown.tab="processNewEmail"
-            />
+        <input
+                type="email"
+                v-autowidth="emailInputConfig"
+                v-model="email"
+                v-on:keyup.enter="processNewEmail"
+                v-on:blur="processNewEmailAndEndEditing"
+                v-on:keydown.tab="processNewEmail"
+                ref="email"
+        />
 </template>
 
 <script>
 export default {
   name: 'EmailsEditorInput',
+  props: {
+    isEditing: Boolean
+  },
   data() {
     return {
       email: '',
@@ -25,7 +28,28 @@ export default {
       this.email = e.target.value;
       this.$emit('new-email', this.email);
       this.email = '';
+    },
+    processNewEmailAndEndEditing(e) {
+      this.processNewEmail(e);
+      this.$emit('end-editing');
+    }
+  },
+  watch: {
+    isEditing: function(val) {
+      if (val === true) {
+        this.$refs.email.focus();
+      }
     }
   }
 };
 </script>
+
+<style scoped>
+input {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 10px;
+}
+</style>
