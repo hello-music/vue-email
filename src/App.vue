@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Main from '@/components/Main.vue';
+import Main from '@/ui/components/Main.vue';
 import router from '@/router/index';
 import store from '@/vuex/index';
 

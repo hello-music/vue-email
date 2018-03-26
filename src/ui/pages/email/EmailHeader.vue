@@ -12,7 +12,6 @@ export default {
   },
   methods: {
     triggerSendEmail() {
-      console.log('clicked');
       this.$emit('send-email');
     }
   }

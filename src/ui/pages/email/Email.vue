@@ -1,6 +1,6 @@
 <template>
     <div>
-        <EmailHeader :readyToSend="isReady"/>
+        <EmailHeader :readyToSend="isReady" v-on:send-email="sendEmail"/>
       <div class="flex flex-column form-container">
           <EmailFormInputGroup>
               <EmailsEditor
@@ -45,32 +45,31 @@ import {
   MODULE_NAME as TO_MODULE,
   ADD as ADD_TO,
   REMOVE as REMOVE_TO
-} from '../../vuex/to';
+} from '../../../vuex/to';
 import {
   MODULE_NAME as CC_MODULE,
   ADD as ADD_CC,
   REMOVE as REMOVE_CC
-} from '../../vuex/cc';
+} from '../../../vuex/cc';
 import {
   MODULE_NAME as BCC_MODULE,
   ADD as ADD_BCC,
   REMOVE as REMOVE_BCC
-} from '../../vuex/bcc';
+} from '../../../vuex/bcc';
 import {
   MODULE_NAME as SUBJECT_MODULE,
   UPDATE as UPDATE_SUBJECT
-} from '../../vuex/subject';
+} from '../../../vuex/subject';
 import {
   MODULE_NAME as CONTENT_MODULE,
   UPDATE as UPDATE_CONTENT
-} from '../../vuex/content';
+} from '../../../vuex/content';
 import EmailsEditor from '../../components/emailsEditor/EmailsEditor.vue';
 import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
 import EmailHeader from './EmailHeader.vue';
-//helper
-/***************************************************/
-const getActionName = (moduleName, actionName) => `${moduleName}/${actionName}`;
+import { ajaxSendEmail } from '../../../services/email.service';
+import { getActionName } from '../../../helpers/helper';
 
 export default {
   name: 'Email',
@@ -127,6 +126,9 @@ export default {
         getActionName(CONTENT_MODULE, UPDATE_CONTENT),
         value
       );
+    },
+    sendEmail() {
+      ajaxSendEmail(this.$store.dispatch);
     }
   }
 };

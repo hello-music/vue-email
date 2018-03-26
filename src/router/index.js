@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Email from '../pages/email/Email.vue';
+import Email from '../ui/pages/email/Email.vue';
 
 Vue.use(Router);
 

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { isEmail } from '../../helpers/helper';
+import { isEmail } from '../../../helpers/helper';
 
 export default {
   name: 'EmailsEditorLabel',
