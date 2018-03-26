@@ -12,16 +12,23 @@ const getters = {
 };
 
 export const UPDATE = 'update';
+export const RESET = 'reset';
 
 const actions = {
-  update(context, content) {
+  [UPDATE](context, content) {
     return context.commit(UPDATE, content);
+  },
+  [RESET](context) {
+    return context.commit(RESET);
   }
 };
 
 const mutations = {
-  update(state, content) {
+  [UPDATE](state, content) {
     state.content = content;
+  },
+  [RESET](state) {
+    state.content = '';
   }
 };
 

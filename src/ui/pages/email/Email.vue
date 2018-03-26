@@ -29,18 +29,18 @@
           <EmailFormInputGroup>
               <div class="flex flex-wrap items-center">
                   <InputTitle :title="'Subject:'" />
-                  <input class="flex-auto" v-on:input="updateSubject"/>
+                  <input class="flex-auto" v-on:input="updateSubject" :value="subject"/>
               </div>
           </EmailFormInputGroup>
           <div class="flex flex-auto container">
-              <textarea v-on:input="updateContent"></textarea>
+              <textarea v-on:input="updateContent" :value="content"></textarea>
           </div>
       </div>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import {
   MODULE_NAME as TO_MODULE,
   ADD as ADD_TO,
@@ -69,7 +69,6 @@ import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
 import EmailHeader from './EmailHeader.vue';
 import { ajaxSendEmail } from '../../../services/email.service';
-import { getActionName } from '../../../helpers/helper';
 
 export default {
   name: 'Email',
@@ -80,14 +79,20 @@ export default {
     EmailHeader
   },
   computed: {
-    //    fetch emails
-    ...mapGetters(TO_MODULE, { toEmails: 'emails' }),
-    ...mapGetters(CC_MODULE, { ccEmails: 'emails' }),
-    ...mapGetters(BCC_MODULE, { bccEmails: 'emails' }),
-    //    fetch if valid
-    ...mapGetters(TO_MODULE, ['toEmailsAreAllValid']),
-    ...mapGetters(BCC_MODULE, ['bccEmailsAreAllValid']),
-    ...mapGetters(CC_MODULE, ['ccEmailsAreAllValid']),
+    ...mapGetters(TO_MODULE, {
+      toEmails: 'emails',
+      toEmailsAreAllValid: 'toEmailsAreAllValid'
+    }),
+    ...mapGetters(CC_MODULE, {
+      ccEmails: 'emails',
+      ccEmailsAreAllValid: 'ccEmailsAreAllValid'
+    }),
+    ...mapGetters(BCC_MODULE, {
+      bccEmails: 'emails',
+      bccEmailsAreAllValid: 'bccEmailsAreAllValid'
+    }),
+    ...mapGetters(SUBJECT_MODULE, ['subject']),
+    ...mapGetters(CONTENT_MODULE, ['content']),
     isReady: function() {
       return (
         this.toEmailsAreAllValid &&
@@ -97,35 +102,29 @@ export default {
     }
   },
   methods: {
-    addToEmail(email) {
-      this.$store.dispatch(getActionName(TO_MODULE, ADD_TO), email);
-    },
-    removeToEmail(index) {
-      this.$store.dispatch(getActionName(TO_MODULE, REMOVE_TO), index);
-    },
-    addCcEmail(email) {
-      this.$store.dispatch(getActionName(CC_MODULE, ADD_CC), email);
-    },
-    removeCcEmail(index) {
-      this.$store.dispatch(getActionName(CC_MODULE, REMOVE_CC), index);
-    },
-    addBccEmail(email) {
-      this.$store.dispatch(getActionName(BCC_MODULE, ADD_BCC), email);
-    },
-    removeBccEmail(index) {
-      this.$store.dispatch(getActionName(BCC_MODULE, REMOVE_BCC), index);
-    },
+    ...mapActions(TO_MODULE, {
+      addToEmail: ADD_TO,
+      removeToEmail: REMOVE_TO
+    }),
+    ...mapActions(CC_MODULE, {
+      addCcEmail: ADD_CC,
+      removeCcEmail: REMOVE_CC
+    }),
+    ...mapActions(BCC_MODULE, {
+      addBccEmail: ADD_BCC,
+      removeBccEmail: REMOVE_BCC
+    }),
+    ...mapActions(SUBJECT_MODULE, {
+      updateSubjectVuex: UPDATE_SUBJECT
+    }),
+    ...mapActions(CONTENT_MODULE, {
+      updateContentVuex: UPDATE_CONTENT
+    }),
     updateSubject({ target: { value } }) {
-      this.$store.dispatch(
-        getActionName(SUBJECT_MODULE, UPDATE_SUBJECT),
-        value
-      );
+      this.updateSubjectVuex(value.trim());
     },
     updateContent({ target: { value } }) {
-      this.$store.dispatch(
-        getActionName(CONTENT_MODULE, UPDATE_CONTENT),
-        value
-      );
+      this.updateContentVuex(value.trim());
     },
     sendEmail() {
       ajaxSendEmail(this.$store.dispatch);

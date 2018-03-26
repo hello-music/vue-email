@@ -15,6 +15,6 @@ export default {
   top: 0;
   width: 100%;
   z-index: 99999;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.25);
 }
 </style>

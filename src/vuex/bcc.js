@@ -18,28 +18,35 @@ const getters = {
 export const ADD = 'add';
 export const UPDATE = 'update';
 export const REMOVE = 'remove';
+export const RESET = 'reset';
 
 const actions = {
-  add(context, email) {
+  [ADD](context, email) {
     return context.commit(ADD, email);
   },
-  update(context, { index, email }) {
+  [UPDATE](context, { index, email }) {
     return context.commit(UPDATE, { index, email });
   },
-  remove(context, index) {
+  [REMOVE](context, index) {
     return context.commit(REMOVE, index);
+  },
+  [RESET](context) {
+    return context.commit(RESET);
   }
 };
 
 const mutations = {
-  add(state, email) {
+  [ADD](state, email) {
     state.emails = [...state.emails, email];
   },
-  update(state, { index, email }) {
+  [UPDATE](state, { index, email }) {
     state.emails = insertAtIndex(state.emails, index, email);
   },
-  remove(state, index) {
+  [REMOVE](state, index) {
     state.emails = removeAtIndex(state.emails, index);
+  },
+  [RESET](state) {
+    state.emails = [];
   }
 };
 

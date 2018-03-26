@@ -33,6 +33,17 @@ input {
   font-weight: 300;
   margin-left: 10px;
 }
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #167efb;
+  font-size: 17px;
+  &[disabled] {
+    color: #dadada;
+    cursor: not-allowed;
+  }
+}
 .container {
   padding-left: 13px;
   padding-right: 13px;

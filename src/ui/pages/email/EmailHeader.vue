@@ -23,15 +23,4 @@ export default {
   height: 44px;
   border-bottom: 1px solid #a5c6df;
 }
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  color: #167efb;
-  font-size: 17px;
-  &[disabled] {
-    color: #dadada;
-    cursor: not-allowed;
-  }
-}
 </style>
