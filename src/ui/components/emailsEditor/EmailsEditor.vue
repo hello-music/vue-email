@@ -9,7 +9,8 @@
                                v-on:remove-email="removeEmail(index)"/>
             <EmailsEditorInput v-on:new-email="processNewEmail"
                                :isEditing="isEditing"
-                               v-on:end-editing="endEditing" />
+                               v-on:end-editing="endEditing"
+                               v-on:remove-email="removeEmail(emails.length - 1)"/>
         </div>
 </template>
 
@@ -41,7 +42,9 @@ export default {
       }
     },
     removeEmail(index) {
-      this.$emit('remove-email', index);
+      if (index > -1) {
+        this.$emit('remove-email', index);
+      }
     },
     startEditing() {
       this.isEditing = true;

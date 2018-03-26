@@ -6,6 +6,7 @@
                 v-on:keyup.enter="processNewEmail"
                 v-on:blur="processNewEmailAndEndEditing"
                 v-on:keydown.tab="processNewEmail"
+                v-on:keydown.delete="removeEmail"
                 ref="email"
         />
 </template>
@@ -32,6 +33,9 @@ export default {
     processNewEmailAndEndEditing(e) {
       this.processNewEmail(e);
       this.$emit('end-editing');
+    },
+    removeEmail() {
+      this.$emit('remove-email');
     }
   },
   watch: {
