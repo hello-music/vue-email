@@ -27,7 +27,7 @@
               />
           </EmailFormInputGroup>
           <EmailFormInputGroup>
-              <div class="flex flex-wrap items-center">
+              <div class="flex flex-wrap flex-auto items-center">
                   <InputTitle :title="'Subject:'" />
                   <input class="flex-auto subject" v-on:input="updateSubject" :value="subject"/>
               </div>
