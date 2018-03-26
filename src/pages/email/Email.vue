@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <EmailHeader />
       <div class="flex flex-column form-container">
           <EmailFormInputGroup>
               <EmailsEditor
@@ -34,6 +36,7 @@
               <textarea v-on:input="updateContent"></textarea>
           </div>
       </div>
+    </div>
 </template>
 
 <script>
@@ -64,6 +67,7 @@ import {
 import EmailsEditor from '../../components/emailsEditor/EmailsEditor.vue';
 import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
+import EmailHeader from './EmailHeader.vue';
 //helper
 /***************************************************/
 const getActionName = (moduleName, actionName) => `${moduleName}/${actionName}`;
@@ -73,7 +77,8 @@ export default {
   components: {
     EmailsEditor,
     InputTitle,
-    EmailFormInputGroup
+    EmailFormInputGroup,
+    EmailHeader
   },
   computed: {
     ...mapGetters(TO_MODULE, { toEmails: 'emails' }),
@@ -126,6 +131,6 @@ textarea {
   font-size: 15px;
 }
 .form-container {
-  height: 100vh;
+  height: calc(100vh - 44px);
 }
 </style>
