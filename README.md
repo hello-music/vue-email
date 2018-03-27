@@ -50,17 +50,10 @@ Highlights:
 * vue-input-autowidth - **auto resize input directive**
 * basscss - **light weight low level css lib**
 
-#### Bundling/Server
-
-* Webpack
-* Webpack-server
-* Hot modules replacement
-
 ### Code Quality Control
 
 * Eslint
 * Prettier
-* Eslint-plugin-prettier
 
 ### Installation
 
