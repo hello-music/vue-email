@@ -1,11 +1,6 @@
 <template>
     <EmailsEditorLabel
-            v-bind="{
-                email,
-                index,
-                isNotEmail,
-                removeEmail
-            }"
+        v-bind="{email, index, isNotEmail, removeEmail}"
     />
 </template>
 

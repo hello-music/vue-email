@@ -1,5 +1,6 @@
 <template>
-    <Email v-bind="{
+    <Email
+        v-bind="{
           toEmails,
           ccEmails,
           bccEmails,

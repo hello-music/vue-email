@@ -29,6 +29,7 @@ export default {
     }
   }
 }
+
 .email-label.is-not-email {
   &:hover {
     background-color: #fedede;
@@ -39,9 +40,11 @@ export default {
     color: #ff383f;
   }
 }
+
 .email {
   color: #007aff;
 }
+
 .remove-button {
   visibility: hidden;
   padding: 3px 3px 3px 5px;

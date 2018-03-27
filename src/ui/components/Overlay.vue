@@ -1,5 +1,7 @@
 <template>
-    <div class="overlay flex items-center justify-center"><slot></slot></div>
+    <div class="overlay flex items-center justify-center">
+        <slot></slot>
+    </div>
 </template>
 
 <script>

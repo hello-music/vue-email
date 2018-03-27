@@ -1,13 +1,5 @@
 <template>
-    <Main v-bind="{
-            loading,
-            showError,
-            showSuccess,
-            error,
-            resetAjax,
-            serverMsg
-          }"
-    />
+    <Main v-bind="{loading, showError, showSuccess, error, resetAjax, serverMsg}" />
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-            <span class="title">{{title}}</span>
+    <span class="title">{{title}}</span>
 </template>
 
 <script>

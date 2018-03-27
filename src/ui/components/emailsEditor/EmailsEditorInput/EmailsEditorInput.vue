@@ -1,14 +1,14 @@
 <template>
-        <input
-                type="email"
-                v-autowidth="emailInputConfig"
-                v-model="email"
-                v-on:keyup.enter="processNewEmail"
-                v-on:blur="processNewEmailAndEndEditing"
-                v-on:keydown.tab="processNewEmail"
-                v-on:keydown.delete="popEmail"
-                ref="email"
-        />
+    <input
+        type="email"
+        v-autowidth="emailInputConfig"
+        v-model="email"
+        v-on:keyup.enter="processNewEmail"
+        v-on:blur="processNewEmailAndEndEditing"
+        v-on:keydown.tab="processNewEmail"
+        v-on:keydown.delete="popEmail"
+        ref="email"
+    />
 </template>
 
 <script>

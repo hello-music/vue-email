@@ -22,10 +22,12 @@ export default {
   background-color: white;
   border-radius: 8px;
 }
+
 .title {
   font-size: 19px;
   margin-top: 35px;
 }
+
 .ok-button {
   padding: 0 20px;
   margin-top: 50px;

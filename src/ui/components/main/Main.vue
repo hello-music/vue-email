@@ -1,9 +1,15 @@
 <template>
     <main>
         <router-view></router-view>
-        <Overlay v-if="loading"><Spinner /></Overlay>
-        <Overlay v-if="showSuccess"><ServerMessage :title="serverMsg" :okButtonConfirmed="resetAjax"/></Overlay>
-        <Overlay v-if="showError"><ServerMessage :title="serverMsg" :okButtonConfirmed="resetAjax"/></Overlay>
+        <Overlay v-if="loading">
+            <Spinner />
+        </Overlay>
+        <Overlay v-if="showSuccess">
+            <ServerMessage :title="serverMsg" :okButtonConfirmed="resetAjax" />
+        </Overlay>
+        <Overlay v-if="showError">
+            <ServerMessage :title="serverMsg" :okButtonConfirmed="resetAjax" />
+        </Overlay>
     </main>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
-      <div class="flex email-header items-center justify-end container">
-          <button :disabled="!readyToSend" v-on:click="sendEmail">Send</button>
-      </div>
+    <div class="flex email-header items-center justify-end container">
+        <button :disabled="!readyToSend" v-on:click="sendEmail">Send</button>
+    </div>
 </template>
 
 <script>

@@ -1,13 +1,5 @@
 <template>
-    <EmailsEditor v-bind="{
-                        emails,
-                        title,
-                        isEditing,
-                        startEditing,
-                        endEditing,
-                        emailType
-                }"
-    />
+    <EmailsEditor v-bind="{emails, title, isEditing, startEditing, endEditing, emailType}" />
 </template>
 
 <script>

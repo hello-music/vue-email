@@ -1,31 +1,23 @@
 <template>
-        <div class="flex flex-wrap flex-auto items-center emails-editor"
-             v-on:click="startEditing"
-        >
-            <InputTitle :title="title" />
-            <EmailsEditorLabelContainer
-                    v-for="(email,index) in emails" v-bind:key="index"
-                    v-bind="{
-                      emailType,
-                      email,
-                      index
-                    }"
-            />
-            <EmailsEditorInputContainer
-                    v-bind="{
-                      emailType,
-                      isEditing,
-                      endEditing,
-                      startEditing
-                    }"
-            />
-        </div>
+    <div class="flex flex-wrap flex-auto items-center emails-editor"
+         v-on:click="startEditing"
+    >
+        <InputTitle :title="title" />
+        <EmailsEditorLabelContainer
+            v-for="(email, index) in emails" v-bind:key="index"
+            v-bind="{emailType, email, index}"
+        />
+        <EmailsEditorInputContainer
+            v-bind="{emailType, isEditing, endEditing, startEditing}"
+        />
+    </div>
 </template>
 
 <script>
 import EmailsEditorLabelContainer from './EmailsEditorLabel/EmailsEditorLabelContainer.vue';
 import EmailsEditorInputContainer from './EmailsEditorInput/EmailsEditorInputContainer.vue';
 import InputTitle from '../InputTitle.vue';
+
 export default {
   name: 'EmailsEditor',
   components: {

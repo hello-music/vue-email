@@ -1,38 +1,38 @@
 <template>
     <div>
         <EmailHeaderContainer />
-      <div class="flex flex-column form-container">
-          <EmailFormInputGroup>
-              <EmailsEditorContainer
-                      :emails="toEmails"
-                      :title="'To:'"
-                      :emailType="'to'"
-              />
-          </EmailFormInputGroup>
-          <EmailFormInputGroup>
-              <EmailsEditorContainer
-                      :emails="ccEmails"
-                      :title="'Cc:'"
-                      :emailType="'cc'"
-              />
-          </EmailFormInputGroup>
-          <EmailFormInputGroup>
-              <EmailsEditorContainer
-                      :emails="bccEmails"
-                      :title="'Bcc:'"
-                      :emailType="'bcc'"
-              />
-          </EmailFormInputGroup>
-          <EmailFormInputGroup>
-              <div class="flex flex-wrap flex-auto items-center">
-                  <InputTitle :title="'Subject:'" />
-                  <input class="flex-auto subject" v-on:input="updateSubject" :value="subject"/>
-              </div>
-          </EmailFormInputGroup>
-          <div class="flex flex-auto container">
-              <textarea v-on:input="updateContent" :value="content"></textarea>
-          </div>
-      </div>
+        <div class="flex flex-column form-container">
+            <EmailFormInputGroup>
+                <EmailsEditorContainer
+                    :emails="toEmails"
+                    :title="'To:'"
+                    :emailType="'to'"
+                />
+            </EmailFormInputGroup>
+            <EmailFormInputGroup>
+                <EmailsEditorContainer
+                    :emails="ccEmails"
+                    :title="'Cc:'"
+                    :emailType="'cc'"
+                />
+            </EmailFormInputGroup>
+            <EmailFormInputGroup>
+                <EmailsEditorContainer
+                    :emails="bccEmails"
+                    :title="'Bcc:'"
+                    :emailType="'bcc'"
+                />
+            </EmailFormInputGroup>
+            <EmailFormInputGroup>
+                <div class="flex flex-wrap flex-auto items-center">
+                    <InputTitle :title="'Subject:'" />
+                    <input class="flex-auto subject" v-on:input="updateSubject" :value="subject" />
+                </div>
+            </EmailFormInputGroup>
+            <div class="flex flex-auto container">
+                <textarea v-on:input="updateContent" :value="content"></textarea>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -74,9 +74,11 @@ textarea {
   font-weight: 300;
   font-size: 15px;
 }
+
 .form-container {
   height: calc(100vh - 55px);
 }
+
 .subject {
   min-height: 50px;
 }

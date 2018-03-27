@@ -1,14 +1,7 @@
 <template>
-        <EmailsEditorInput
-                v-bind="{
-                    isEditing,
-                    endEditing,
-                    startEditing,
-                    emailInputConfig,
-                    popEmail,
-                    addEmail
-                }"
-        />
+    <EmailsEditorInput
+        v-bind="{isEditing, endEditing, startEditing, emailInputConfig, popEmail, addEmail}"
+    />
 </template>
 
 <script>
@@ -34,6 +27,7 @@ import {
   CC_EMAIL_TYPE,
   TO_EMAIL_TYPE
 } from '../../../../helpers/helper';
+
 export default {
   name: 'EmailsEditorInputContainer',
   components: {

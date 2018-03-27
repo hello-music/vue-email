@@ -1,7 +1,7 @@
 <template>
-            <div class="email-form-input-group container flex items-center">
-                <slot></slot>
-            </div>
+    <div class="email-form-input-group container flex items-center">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
