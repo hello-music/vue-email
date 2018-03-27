@@ -20,11 +20,6 @@ const msgMapping = {
 };
 export default {
   name: 'MainContainer',
-  data() {
-    return {
-      msgMapping
-    };
-  },
   components: {
     Main
   },
