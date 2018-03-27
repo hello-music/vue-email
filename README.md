@@ -12,7 +12,7 @@
 Highlights:
 
 1.  Vue-cli + Vue.js + Vuex + Vue-router + SCSS
-2.  Real UX - Keyboard works: tab/enter/delete when adding an email(try it out)
+2.  Keyboard actions: tab/enter/delete when adding an email(try it out)
 
 ### Directory Layout
 
