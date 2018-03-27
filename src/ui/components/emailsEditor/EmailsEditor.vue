@@ -3,7 +3,7 @@
              v-on:click="startEditing"
         >
             <InputTitle :title="title" />
-            <EmailsEditorLabel v-for="(email,index) in emails" v-bind:key="index"
+            <EmailsEditorLabelContainer v-for="(email,index) in emails" v-bind:key="index"
                                :email="email"
                                :index="index"
                                v-on:remove-email="removeEmail(index)"/>
@@ -15,14 +15,14 @@
 </template>
 
 <script>
+import EmailsEditorLabelContainer from './EmailsEditorLabel/EmailsEditorLabelContainer.vue';
 import EmailsEditorInput from './EmailsEditorInput.vue';
-import EmailsEditorLabel from './EmailsEditorLabel.vue';
 import InputTitle from '../InputTitle.vue';
 export default {
   name: 'EmailsEditor',
   components: {
+    EmailsEditorLabelContainer,
     EmailsEditorInput,
-    EmailsEditorLabel,
     InputTitle
   },
   props: {

@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Email from '../ui/pages/email/Email.vue';
+import EmailContainer from '../ui/pages/email/EmailContainer.vue';
 
 Vue.use(Router);
 
 const routes = [
   { path: '/', redirect: '/email' },
-  { path: '/email', name: 'email', component: Email },
+  { path: '/email', name: 'email', component: EmailContainer },
   { path: '*', redirect: '/email' }
 ];
 const router = new Router({

@@ -1,7 +1,7 @@
 <template>
     <div class="server-message flex flex-column">
         <span class="title self-center">{{title}}</span>
-        <button class="ok-button self-end" v-on:click="confirmed">OK</button>
+        <button class="ok-button self-end" v-on:click="okButtonConfirmed">OK</button>
     </div>
 </template>
 
@@ -9,12 +9,8 @@
 export default {
   name: 'ServerMessage',
   props: {
-    title: String
-  },
-  methods: {
-    confirmed() {
-      this.$emit('ok-button-confirmed');
-    }
+    title: String,
+    okButtonConfirmed: Function
   }
 };
 </script>

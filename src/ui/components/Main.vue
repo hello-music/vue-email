@@ -2,8 +2,8 @@
     <main>
         <router-view></router-view>
         <Overlay v-if="loading"><Spinner /></Overlay>
-        <Overlay v-if="showSuccess"><ServerMessage :title="msgMapping['success']" v-on:ok-button-confirmed="resetAjax"/></Overlay>
-        <Overlay v-if="showError"><ServerMessage :title="msgMapping[error]" v-on:ok-button-confirmed="resetAjax"/></Overlay>
+        <Overlay v-if="showSuccess"><ServerMessage :title="msgMapping['success']" :okButtonConfirmed="resetAjax"/></Overlay>
+        <Overlay v-if="showError"><ServerMessage :title="msgMapping[error]" :okButtonConfirmed="resetAjax"/></Overlay>
     </main>
 </template>
 

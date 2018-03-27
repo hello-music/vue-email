@@ -6,23 +6,13 @@
 </template>
 
 <script>
-import { isEmail } from '../../../helpers/helper';
-
 export default {
   name: 'EmailsEditorLabel',
   props: {
     email: String,
-    index: Number
-  },
-  computed: {
-    isNotEmail: function() {
-      return !isEmail(this.email);
-    }
-  },
-  methods: {
-    removeEmail() {
-      this.$emit('remove-email');
-    }
+    index: Number,
+    isNotEmail: Boolean,
+    removeEmail: Function
   }
 };
 </script>
