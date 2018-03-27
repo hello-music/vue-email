@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <Main />
+    <MainContainer />
   </div>
 </template>
 
 <script>
-import Main from '@/ui/components/Main.vue';
-import router from '@/router/index';
-import store from '@/vuex/index';
+import MainContainer from './ui/components/main/MainContainer.vue';
+import router from './router/index';
+import store from './vuex/index';
 
 export default {
   name: 'app',
   router,
   components: {
-    Main
+    MainContainer
   },
   store
 };
