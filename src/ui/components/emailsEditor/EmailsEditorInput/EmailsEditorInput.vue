@@ -17,6 +17,7 @@ export default {
   props: {
     isEditing: Boolean,
     endEditing: Function,
+    startEditing: Function,
     emailInputConfig: Object,
     popEmail: Function,
     addEmail: Function
@@ -29,6 +30,7 @@ export default {
   methods: {
     processNewEmail(e) {
       e.preventDefault();
+      this.startEditing();
       this.email = e.target.value;
       if (this.email.trim() !== '') {
         this.addEmail(this.email);

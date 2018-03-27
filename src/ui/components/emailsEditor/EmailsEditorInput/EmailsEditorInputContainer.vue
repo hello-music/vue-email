@@ -3,6 +3,7 @@
                 v-bind="{
                     isEditing,
                     endEditing,
+                    startEditing,
                     emailInputConfig,
                     popEmail,
                     addEmail
@@ -41,7 +42,8 @@ export default {
   props: {
     isEditing: Boolean,
     emailType: String,
-    endEditing: Function
+    endEditing: Function,
+    startEditing: Function
   },
   data() {
     return {

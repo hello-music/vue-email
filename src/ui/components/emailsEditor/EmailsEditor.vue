@@ -15,7 +15,8 @@
                     v-bind="{
                       emailType,
                       isEditing,
-                      endEditing
+                      endEditing,
+                      startEditing
                     }"
             />
         </div>
