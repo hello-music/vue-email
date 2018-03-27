@@ -1,6 +1,6 @@
 <template>
     <div>
-        <EmailHeader :readyToSend="isReady" v-on:send-email="sendEmail"/>
+        <EmailHeaderContainer />
       <div class="flex flex-column form-container">
           <EmailFormInputGroup>
               <EmailsEditorContainer
@@ -40,7 +40,7 @@
 import EmailsEditorContainer from '../../components/emailsEditor/EmailsEditorContainer.vue';
 import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
-import EmailHeader from './emailHeader/EmailHeader.vue';
+import EmailHeaderContainer from './emailHeader/EmailHeaderContainer.vue';
 // component
 /**************************************************/
 export default {
@@ -49,7 +49,7 @@ export default {
     EmailsEditorContainer,
     InputTitle,
     EmailFormInputGroup,
-    EmailHeader
+    EmailHeaderContainer
   },
   props: {
     // to email

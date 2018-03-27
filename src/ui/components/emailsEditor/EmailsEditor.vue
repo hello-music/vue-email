@@ -3,9 +3,11 @@
              v-on:click="startEditing"
         >
             <InputTitle :title="title" />
-            <EmailsEditorLabelContainer v-for="(email,index) in emails" v-bind:key="index"
-                               :email="email"
-                               :index="index"/>
+            <EmailsEditorLabelContainer
+                    v-for="(email,index) in emails" v-bind:key="index"
+                    :emailType="emailType"
+                    :email="email"
+                    :index="index"/>
             <EmailsEditorInputContainer
                     :isEditing="isEditing"
                     :emailType="emailType"

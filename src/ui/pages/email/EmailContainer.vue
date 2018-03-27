@@ -7,8 +7,6 @@
         :updateSubject="updateSubject"
         :content="content"
         :updateContent="updateContent"
-        :isReady="isReady"
-        :sendEmail="sendEmail"
     />
 </template>
 
@@ -26,13 +24,6 @@ import {
   UPDATE as UPDATE_CONTENT
 } from '../../../vuex/content';
 import Email from './Email.vue';
-import { ajaxSendEmail } from '../../../services/email.service';
-import { fakeFail, fakeSuccess } from '../../../helpers/ajax';
-// helper
-/**************************************************/
-const getFakePromise = demoQuery =>
-  demoQuery === 'error' ? fakeFail : fakeSuccess;
-const getTimeout = demoQuery => (demoQuery === 'timeout' ? 500 : 2000);
 // component
 /**************************************************/
 export default {
@@ -42,26 +33,16 @@ export default {
   },
   computed: {
     ...mapGetters(TO_MODULE, {
-      toEmails: 'emails',
-      toEmailsAreAllValid: 'toEmailsAreAllValid'
+      toEmails: 'emails'
     }),
     ...mapGetters(CC_MODULE, {
-      ccEmails: 'emails',
-      ccEmailsAreAllValid: 'ccEmailsAreAllValid'
+      ccEmails: 'emails'
     }),
     ...mapGetters(BCC_MODULE, {
-      bccEmails: 'emails',
-      bccEmailsAreAllValid: 'bccEmailsAreAllValid'
+      bccEmails: 'emails'
     }),
     ...mapGetters(SUBJECT_MODULE, ['subject']),
-    ...mapGetters(CONTENT_MODULE, ['content']),
-    isReady: function() {
-      return (
-        this.toEmailsAreAllValid &&
-        this.bccEmailsAreAllValid &&
-        this.ccEmailsAreAllValid
-      );
-    }
+    ...mapGetters(CONTENT_MODULE, ['content'])
   },
   methods: {
     ...mapActions(SUBJECT_MODULE, {
@@ -75,13 +56,6 @@ export default {
     },
     updateContent({ target: { value } }) {
       this.updateContentVuex(value.trim());
-    },
-    sendEmail() {
-      const { demo } = this.$route.query;
-      ajaxSendEmail(this.$store.dispatch, {
-        fakePromise: getFakePromise(demo),
-        timeout: getTimeout(demo)
-      });
     }
   }
 };

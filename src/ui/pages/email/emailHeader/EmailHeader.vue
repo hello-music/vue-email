@@ -1,6 +1,6 @@
 <template>
       <div class="flex email-header items-center justify-end container">
-          <button :disabled="!readyToSend" v-on:click="triggerSendEmail">Send</button>
+          <button :disabled="!readyToSend" v-on:click="sendEmail">Send</button>
       </div>
 </template>
 
@@ -8,12 +8,8 @@
 export default {
   name: 'EmailHeader',
   props: {
-    readyToSend: Boolean
-  },
-  methods: {
-    triggerSendEmail() {
-      this.$emit('send-email');
-    }
+    readyToSend: Boolean,
+    sendEmail: Function
   }
 };
 </script>
