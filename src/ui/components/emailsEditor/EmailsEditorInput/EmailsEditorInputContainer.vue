@@ -83,6 +83,7 @@ export default {
       this.getAddEmailFunc()(email);
     },
     popEmail({ target: { value } }) {
+      this.startEditing();
       if (value === '') {
         this.getPopEmailFunc()();
       }
@@ -101,7 +102,8 @@ export default {
       this.endEditing();
     },
     handleInputChange({ srcElement }) {
-      autoSizeInput(srcElement);
+      this.startEditing();
+      autoSizeInput(srcElement, { minWidth: true });
     }
   }
 };
