@@ -20,19 +20,19 @@ Highlights:
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /public/                    # Public assets
 ├── /src/                       # Development work
-│   ├── /assets/                # project assessible assets
-│   ├── /helpers/               # project assessible assets
-│   │   ├── /ajax.js            # generic ajax call interface
-│   │   ├── /helper.js          # general reusable util functions
-│   ├── /router/                # define routes
-│   ├── /services/              # api services
+│   ├── /assets/                # Project assessible assets
+│   ├── /helpers/               # Project assessible assets
+│   │   ├── /ajax.js            # Generic ajax call interface
+│   │   ├── /helper.js          # General reusable util functions
+│   ├── /router/                # Define routes
+│   ├── /services/              # API services
 │   ├── /ui/                    # UI components
 │   │   ├── /components/        # Reusable components
 │   │   ├── /pages/             # Page specific components
 │   ├── /vuex/                  # vuex data store
-│   ├── /App.vue                # application root component
-│   ├── /main.js                # mount app, entry point
-├── .prettierrc                 # Utility and helper classes
+│   ├── /App.vue                # Application root component
+│   ├── /main.js                # Mount app, entry point
+├── .prettierrc                 # Code styling config
 │── README.md                   # This file that you are reading
 │── package.json                # The list of project dependencies and NPM
 ```
