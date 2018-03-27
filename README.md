@@ -82,6 +82,7 @@ Go to browser: localhost:8080
 * Unit tests
 * Code refactor
 * Component reusabilities
+* Features: No Subject warning, edit existing email addresses
 
 ## License
 
