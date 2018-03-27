@@ -20,11 +20,19 @@ export const fakeFail = () =>
       reject(new Error('fail'));
     }, 1000);
   });
+
+const timeoutPromise = milliseconds =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('timeout'));
+    }, milliseconds);
+  });
+
 // generic ajax gateway
 /**************************************************/
-const ajax = (dispatch, fakePromise, successAction = '') => {
+const ajax = (dispatch, { fakePromise, timeout }, successAction = '') => {
   dispatch(getActionName(MODULE_NAME, LOADING));
-  return fakePromise()
+  return Promise.race([timeoutPromise(timeout), fakePromise()])
     .then(response => {
       if (successAction !== '') {
         dispatch(successAction, response.data);

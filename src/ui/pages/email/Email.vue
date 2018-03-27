@@ -74,6 +74,7 @@ import { fakeFail, fakeSuccess } from '../../../helpers/ajax';
 /**************************************************/
 const getFakePromise = demoQuery =>
   demoQuery === 'error' ? fakeFail : fakeSuccess;
+const getTimeout = demoQuery => (demoQuery === 'timeout' ? 500 : 2000);
 // component
 /**************************************************/
 export default {
@@ -133,10 +134,11 @@ export default {
       this.updateContentVuex(value.trim());
     },
     sendEmail() {
-      ajaxSendEmail(
-        this.$store.dispatch,
-        getFakePromise(this.$route.query.demo)
-      );
+      const { demo } = this.$route.query;
+      ajaxSendEmail(this.$store.dispatch, {
+        fakePromise: getFakePromise(demo),
+        timeout: getTimeout(demo)
+      });
     }
   }
 };
