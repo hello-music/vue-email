@@ -1,15 +1,17 @@
 <template>
-    <div class="flex flex-wrap flex-auto items-center emails-editor"
+    <div class="flex flex-auto items-center emails-editor"
          v-on:click="startEditing"
     >
         <InputTitle :title="title" />
-        <EmailsEditorLabelContainer
-            v-for="(email, index) in emails" v-bind:key="index"
-            v-bind="{emailType, email, index}"
-        />
-        <EmailsEditorInputContainer
-            v-bind="{emailType, isEditing, endEditing, startEditing}"
-        />
+        <div class="flex flex-wrap flex-auto">
+            <EmailsEditorLabelContainer
+                v-for="(email, index) in emails" v-bind:key="index"
+                v-bind="{emailType, email, index}"
+            />
+            <EmailsEditorInputContainer
+                v-bind="{emailType, isEditing, endEditing, startEditing}"
+            />
+        </div>
     </div>
 </template>
 

@@ -17,5 +17,6 @@ export default {
   margin-right: 10px;
   cursor: default;
   font-size: 15px;
+  min-width: 30px;
 }
 </style>
