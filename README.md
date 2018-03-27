@@ -2,7 +2,12 @@
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
+
 [Live demo](https://this-is-demo-only.firebaseapp.com)
+
+* Add query string "**?demo=success**" to simulate success email send: [success demo](https://this-is-demo-only.firebaseapp.com?demo=success)
+* Add query string "**?demo=error**" to simulate success email send: [error demo](https://this-is-demo-only.firebaseapp.com?demo=error)
+* Add query string "**?demo=timeout**" to simulate slow server response (Promise.race to manage slow server response): [timeout demo](https://this-is-demo-only.firebaseapp.com?demo=timeout)
 
 Highlights:
 
