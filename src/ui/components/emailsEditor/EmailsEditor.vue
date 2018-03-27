@@ -16,7 +16,7 @@
 
 <script>
 import EmailsEditorLabelContainer from './EmailsEditorLabel/EmailsEditorLabelContainer.vue';
-import EmailsEditorInput from './EmailsEditorInput.vue';
+import EmailsEditorInput from './EmailsEditorInput/EmailsEditorInput.vue';
 import InputTitle from '../InputTitle.vue';
 export default {
   name: 'EmailsEditor',
@@ -27,31 +27,13 @@ export default {
   },
   props: {
     emails: Array,
-    title: String
-  },
-  data() {
-    return {
-      emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 },
-      isEditing: false
-    };
-  },
-  methods: {
-    processNewEmail(email) {
-      if (email !== '') {
-        this.$emit('new-email', email);
-      }
-    },
-    removeEmail(index) {
-      if (index > -1) {
-        this.$emit('remove-email', index);
-      }
-    },
-    startEditing() {
-      this.isEditing = true;
-    },
-    endEditing() {
-      this.isEditing = false;
-    }
+    title: String,
+    emailInputConfig: Object,
+    isEditing: Boolean,
+    processNewEmail: Function,
+    removeEmail: Function,
+    startEditing: Function,
+    endEditing: Function
   }
 };
 </script>

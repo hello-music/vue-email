@@ -3,7 +3,7 @@
         <EmailHeader :readyToSend="isReady" v-on:send-email="sendEmail"/>
       <div class="flex flex-column form-container">
           <EmailFormInputGroup>
-              <EmailsEditor
+              <EmailsEditorContainer
                       :emails="toEmails"
                       :title="'To:'"
                       v-on:new-email="addToEmail"
@@ -11,7 +11,7 @@
               />
           </EmailFormInputGroup>
           <EmailFormInputGroup>
-              <EmailsEditor
+              <EmailsEditorContainer
                       :emails="ccEmails"
                       :title="'Cc:'"
                       v-on:new-email="addCcEmail"
@@ -19,7 +19,7 @@
               />
           </EmailFormInputGroup>
           <EmailFormInputGroup>
-              <EmailsEditor
+              <EmailsEditorContainer
                       :emails="bccEmails"
                       :title="'Bcc:'"
                       v-on:new-email="addBccEmail"
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import EmailsEditor from '../../components/emailsEditor/EmailsEditor.vue';
+import EmailsEditorContainer from '../../components/emailsEditor/EmailsEditorContainer.vue';
 import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
 import EmailHeader from './emailHeader/EmailHeader.vue';
@@ -49,7 +49,7 @@ import EmailHeader from './emailHeader/EmailHeader.vue';
 export default {
   name: 'Email',
   components: {
-    EmailsEditor,
+    EmailsEditorContainer,
     InputTitle,
     EmailFormInputGroup,
     EmailHeader
