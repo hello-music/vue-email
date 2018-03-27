@@ -1,5 +1,12 @@
 <template>
-    <EmailsEditorLabel :email="email" :index="index" :isNotEmail="isNotEmail" :removeEmail="removeEmail" />
+    <EmailsEditorLabel
+            v-bind="{
+                email,
+                index,
+                isNotEmail,
+                removeEmail
+            }"
+    />
 </template>
 
 <script>

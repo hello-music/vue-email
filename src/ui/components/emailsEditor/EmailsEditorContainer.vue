@@ -1,16 +1,18 @@
 <template>
-        <EmailsEditor
-                :emails="emails"
-                :title="title"
-                :isEditing="isEditing"
-                :startEditing="startEditing"
-                :endEditing="endEditing"
-                :emailType="emailType"
-        />
+    <EmailsEditor v-bind="{
+                        emails,
+                        title,
+                        isEditing,
+                        startEditing,
+                        endEditing,
+                        emailType
+                }"
+    />
 </template>
 
 <script>
 import EmailsEditor from './EmailsEditor.vue';
+
 export default {
   name: 'EmailsEditorContainer',
   components: {

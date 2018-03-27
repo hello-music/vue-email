@@ -1,12 +1,13 @@
 <template>
-    <Email
-        :toEmails="toEmails"
-        :ccEmails="ccEmails"
-        :bccEmails="bccEmails"
-        :subject="subject"
-        :updateSubject="updateSubject"
-        :content="content"
-        :updateContent="updateContent"
+    <Email v-bind="{
+          toEmails,
+          ccEmails,
+          bccEmails,
+          subject,
+          updateSubject,
+          content,
+          updateContent
+        }"
     />
 </template>
 

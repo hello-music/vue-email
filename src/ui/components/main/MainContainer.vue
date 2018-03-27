@@ -1,10 +1,12 @@
 <template>
-    <Main :loading="loading"
-          :showError="showError"
-          :showSuccess="showSuccess"
-          :error="error"
-          :resetAjax="resetAjax"
-          :serverMsg="serverMsg"
+    <Main v-bind="{
+            loading,
+            showError,
+            showSuccess,
+            error,
+            resetAjax,
+            serverMsg
+          }"
     />
 </template>
 

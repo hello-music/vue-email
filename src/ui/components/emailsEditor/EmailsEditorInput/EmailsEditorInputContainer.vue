@@ -1,10 +1,12 @@
 <template>
         <EmailsEditorInput
-                :isEditing="isEditing"
-                :endEditing="endEditing"
-                :emailInputConfig="emailInputConfig"
-                :popEmail="popEmail"
-                :addEmail="addEmail"
+                v-bind="{
+                    isEditing,
+                    endEditing,
+                    emailInputConfig,
+                    popEmail,
+                    addEmail
+                }"
         />
 </template>
 

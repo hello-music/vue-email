@@ -5,13 +5,18 @@
             <InputTitle :title="title" />
             <EmailsEditorLabelContainer
                     v-for="(email,index) in emails" v-bind:key="index"
-                    :emailType="emailType"
-                    :email="email"
-                    :index="index"/>
+                    v-bind="{
+                      emailType,
+                      email,
+                      index
+                    }"
+            />
             <EmailsEditorInputContainer
-                    :isEditing="isEditing"
-                    :emailType="emailType"
-                    :endEditing="endEditing"
+                    v-bind="{
+                      emailType,
+                      isEditing,
+                      endEditing
+                    }"
             />
         </div>
 </template>
