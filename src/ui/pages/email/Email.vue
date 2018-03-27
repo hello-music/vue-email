@@ -52,21 +52,14 @@ export default {
     EmailHeaderContainer
   },
   props: {
-    // to email
     toEmails: Array,
-    // cc email
     ccEmails: Array,
-    // bcc email
     bccEmails: Array,
-    // subject
     subject: String,
     updateSubject: Function,
-    // content
     content: String,
     updateContent: Function,
-    // others
-    isReady: Boolean,
-    sendEmail: Function
+    emailType: String
   }
 };
 </script>

@@ -26,6 +26,11 @@ import {
   POP as POP_BCC
 } from '../../../../vuex/bcc';
 import EmailsEditorInput from './EmailsEditorInput.vue';
+import {
+  BCC_EMAIL_TYPE,
+  CC_EMAIL_TYPE,
+  TO_EMAIL_TYPE
+} from '../../../../helpers/helper';
 export default {
   name: 'EmailsEditorInputContainer',
   components: {
@@ -57,21 +62,21 @@ export default {
     }),
     getAddEmailFunc() {
       switch (this.emailType) {
-        case 'to':
+        case TO_EMAIL_TYPE:
           return this.addTo;
-        case 'cc':
+        case CC_EMAIL_TYPE:
           return this.addCc;
-        case 'bcc':
+        case BCC_EMAIL_TYPE:
           return this.addBcc;
       }
     },
     getPopEmailFunc() {
       switch (this.emailType) {
-        case 'to':
+        case TO_EMAIL_TYPE:
           return this.popTo;
-        case 'cc':
+        case CC_EMAIL_TYPE:
           return this.popCc;
-        case 'bcc':
+        case BCC_EMAIL_TYPE:
           return this.popBcc;
       }
     },

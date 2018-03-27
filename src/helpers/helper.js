@@ -16,3 +16,7 @@ export const isEmail = email => {
 
 export const getActionName = (moduleName, actionName) =>
   `${moduleName}/${actionName}`;
+
+export const TO_EMAIL_TYPE = 'to';
+export const CC_EMAIL_TYPE = 'cc';
+export const BCC_EMAIL_TYPE = 'bcc';

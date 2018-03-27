@@ -17,7 +17,12 @@ import {
   REMOVE as REMOVE_BCC
 } from '../../../../vuex/bcc';
 import EmailsEditorLabel from './EmailsEditorLabel.vue';
-import { isEmail } from '../../../../helpers/helper';
+import {
+  BCC_EMAIL_TYPE,
+  CC_EMAIL_TYPE,
+  isEmail,
+  TO_EMAIL_TYPE
+} from '../../../../helpers/helper';
 
 export default {
   name: 'EmailsEditorLabelContainer',
@@ -46,11 +51,11 @@ export default {
     }),
     getRemoveEmailFunc() {
       switch (this.emailType) {
-        case 'to':
+        case TO_EMAIL_TYPE:
           return this.removeTo;
-        case 'cc':
+        case CC_EMAIL_TYPE:
           return this.removeCc;
-        case 'bcc':
+        case BCC_EMAIL_TYPE:
           return this.removeBcc;
       }
     },
