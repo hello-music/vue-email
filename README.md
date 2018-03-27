@@ -5,9 +5,9 @@
 
 [Live demo](https://this-is-demo-only.firebaseapp.com)
 
-* Add query string "**?demo=success**" to simulate **server success** response(Promise resolve): [success demo](https://this-is-demo-only.firebaseapp.com?demo=success)
-* Add query string "**?demo=error**" to simulate **server error** response(Throw error): [error demo](https://this-is-demo-only.firebaseapp.com?demo=error)
-* Add query string "**?demo=timeout**" to simulate **slow server** response (Promise.race): [timeout demo](https://this-is-demo-only.firebaseapp.com?demo=timeout)
+* [success demo](https://this-is-demo-only.firebaseapp.com?demo=success): Add query string "**?demo=success**" to simulate **server success** response(Promise resolve)
+* [error demo](https://this-is-demo-only.firebaseapp.com?demo=error): Add query string "**?demo=error**" to simulate **server error** response(Throw error)
+* [timeout demo](https://this-is-demo-only.firebaseapp.com?demo=timeout): Add query string "**?demo=timeout**" to simulate **slow server** response (Promise.race)
 
 Highlights:
 
