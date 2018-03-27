@@ -6,7 +6,7 @@
                 v-on:keyup.enter="processNewEmail"
                 v-on:blur="processNewEmailAndEndEditing"
                 v-on:keydown.tab="processNewEmail"
-                v-on:keydown.delete="removeEmail"
+                v-on:keydown.delete="popEmail"
                 ref="email"
         />
 </template>
@@ -15,27 +15,29 @@
 export default {
   name: 'EmailsEditorInput',
   props: {
-    isEditing: Boolean
+    isEditing: Boolean,
+    endEditing: Function,
+    emailInputConfig: Object,
+    popEmail: Function,
+    addEmail: Function
   },
   data() {
     return {
-      email: '',
-      emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 }
+      email: ''
     };
   },
   methods: {
     processNewEmail(e) {
       e.preventDefault();
       this.email = e.target.value;
-      this.$emit('new-email', this.email);
+      if (this.email.trim() !== '') {
+        this.addEmail(this.email);
+      }
       this.email = '';
     },
     processNewEmailAndEndEditing(e) {
       this.processNewEmail(e);
-      this.$emit('end-editing');
-    },
-    removeEmail() {
-      this.$emit('remove-email');
+      this.endEditing();
     }
   },
   watch: {

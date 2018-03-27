@@ -1,17 +1,8 @@
 <template>
     <Email
         :toEmails="toEmails"
-        :toEmailsAreAllValid="toEmailsAreAllValid"
-        :addToEmail="addToEmail"
-        :removeToEmail="removeToEmail"
         :ccEmails="ccEmails"
-        :ccEmailsAreAllValid="ccEmailsAreAllValid"
-        :addCcEmail="addCcEmail"
-        :removeCcEmail="removeCcEmail"
         :bccEmails="bccEmails"
-        :bccEmailsAreAllValid="bccEmailsAreAllValid"
-        :addBccEmail="addBccEmail"
-        :removeBccEmail="removeBccEmail"
         :subject="subject"
         :updateSubject="updateSubject"
         :content="content"
@@ -23,21 +14,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import {
-  MODULE_NAME as TO_MODULE,
-  ADD as ADD_TO,
-  REMOVE as REMOVE_TO
-} from '../../../vuex/to';
-import {
-  MODULE_NAME as CC_MODULE,
-  ADD as ADD_CC,
-  REMOVE as REMOVE_CC
-} from '../../../vuex/cc';
-import {
-  MODULE_NAME as BCC_MODULE,
-  ADD as ADD_BCC,
-  REMOVE as REMOVE_BCC
-} from '../../../vuex/bcc';
+import { MODULE_NAME as TO_MODULE } from '../../../vuex/to';
+import { MODULE_NAME as CC_MODULE } from '../../../vuex/cc';
+import { MODULE_NAME as BCC_MODULE } from '../../../vuex/bcc';
 import {
   MODULE_NAME as SUBJECT_MODULE,
   UPDATE as UPDATE_SUBJECT
@@ -85,18 +64,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(TO_MODULE, {
-      addToEmail: ADD_TO,
-      removeToEmail: REMOVE_TO
-    }),
-    ...mapActions(CC_MODULE, {
-      addCcEmail: ADD_CC,
-      removeCcEmail: REMOVE_CC
-    }),
-    ...mapActions(BCC_MODULE, {
-      addBccEmail: ADD_BCC,
-      removeBccEmail: REMOVE_BCC
-    }),
     ...mapActions(SUBJECT_MODULE, {
       updateSubjectVuex: UPDATE_SUBJECT
     }),

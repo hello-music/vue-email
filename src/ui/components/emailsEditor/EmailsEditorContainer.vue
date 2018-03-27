@@ -2,12 +2,10 @@
         <EmailsEditor
                 :emails="emails"
                 :title="title"
-                :emailInputConfig="emailInputConfig"
                 :isEditing="isEditing"
-                :processNewEmail="processNewEmail"
-                :removeEmail="removeEmail"
                 :startEditing="startEditing"
                 :endEditing="endEditing"
+                :emailType="emailType"
         />
 </template>
 
@@ -20,25 +18,15 @@ export default {
   },
   props: {
     emails: Array,
-    title: String
+    title: String,
+    emailType: String
   },
   data() {
     return {
-      emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 },
       isEditing: false
     };
   },
   methods: {
-    processNewEmail(email) {
-      if (email !== '') {
-        this.$emit('new-email', email);
-      }
-    },
-    removeEmail(index) {
-      if (index > -1) {
-        this.$emit('remove-email', index);
-      }
-    },
     startEditing() {
       this.isEditing = true;
     },

@@ -10,7 +10,6 @@ export default {
   name: 'EmailsEditorLabel',
   props: {
     email: String,
-    index: Number,
     isNotEmail: Boolean,
     removeEmail: Function
   }

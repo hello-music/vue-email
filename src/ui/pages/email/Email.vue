@@ -6,24 +6,21 @@
               <EmailsEditorContainer
                       :emails="toEmails"
                       :title="'To:'"
-                      v-on:new-email="addToEmail"
-                      v-on:remove-email="removeToEmail"
+                      :emailType="'to'"
               />
           </EmailFormInputGroup>
           <EmailFormInputGroup>
               <EmailsEditorContainer
                       :emails="ccEmails"
                       :title="'Cc:'"
-                      v-on:new-email="addCcEmail"
-                      v-on:remove-email="removeCcEmail"
+                      :emailType="'cc'"
               />
           </EmailFormInputGroup>
           <EmailFormInputGroup>
               <EmailsEditorContainer
                       :emails="bccEmails"
                       :title="'Bcc:'"
-                      v-on:new-email="addBccEmail"
-                      v-on:remove-email="removeBccEmail"
+                      :emailType="'bcc'"
               />
           </EmailFormInputGroup>
           <EmailFormInputGroup>
@@ -57,19 +54,10 @@ export default {
   props: {
     // to email
     toEmails: Array,
-    toEmailsAreAllValid: Boolean,
-    addToEmail: Function,
-    removeToEmail: Function,
     // cc email
     ccEmails: Array,
-    ccEmailsAreAllValid: Boolean,
-    addCcEmail: Function,
-    removeCcEmail: Function,
     // bcc email
     bccEmails: Array,
-    bccEmailsAreAllValid: Boolean,
-    addBccEmail: Function,
-    removeBccEmail: Function,
     // subject
     subject: String,
     updateSubject: Function,

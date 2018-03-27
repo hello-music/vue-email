@@ -5,35 +5,33 @@
             <InputTitle :title="title" />
             <EmailsEditorLabelContainer v-for="(email,index) in emails" v-bind:key="index"
                                :email="email"
-                               :index="index"
-                               v-on:remove-email="removeEmail(index)"/>
-            <EmailsEditorInput v-on:new-email="processNewEmail"
-                               :isEditing="isEditing"
-                               v-on:end-editing="endEditing"
-                               v-on:remove-email="removeEmail(emails.length - 1)"/>
+                               :index="index"/>
+            <EmailsEditorInputContainer
+                    :isEditing="isEditing"
+                    :emailType="emailType"
+                    :endEditing="endEditing"
+            />
         </div>
 </template>
 
 <script>
 import EmailsEditorLabelContainer from './EmailsEditorLabel/EmailsEditorLabelContainer.vue';
-import EmailsEditorInput from './EmailsEditorInput/EmailsEditorInput.vue';
+import EmailsEditorInputContainer from './EmailsEditorInput/EmailsEditorInputContainer.vue';
 import InputTitle from '../InputTitle.vue';
 export default {
   name: 'EmailsEditor',
   components: {
     EmailsEditorLabelContainer,
-    EmailsEditorInput,
+    EmailsEditorInputContainer,
     InputTitle
   },
   props: {
     emails: Array,
+    emailType: String,
     title: String,
-    emailInputConfig: Object,
     isEditing: Boolean,
-    processNewEmail: Function,
-    removeEmail: Function,
-    startEditing: Function,
-    endEditing: Function
+    endEditing: Function,
+    startEditing: Function
   }
 };
 </script>

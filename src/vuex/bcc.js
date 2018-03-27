@@ -20,6 +20,7 @@ const getters = {
 export const ADD = 'add';
 export const UPDATE = 'update';
 export const REMOVE = 'remove';
+export const POP = 'pop';
 export const RESET = 'reset';
 
 const actions = {
@@ -31,6 +32,9 @@ const actions = {
   },
   [REMOVE](context, index) {
     return context.commit(REMOVE, index);
+  },
+  [POP](context) {
+    return context.commit(POP);
   },
   [RESET](context) {
     return context.commit(RESET);
@@ -47,6 +51,9 @@ const mutations = {
   },
   [REMOVE](state, index) {
     state.emails = removeAtIndex(state.emails, index);
+  },
+  [POP](state) {
+    state.emails = state.emails.slice(0, -1);
   },
   [RESET](state) {
     state.emails = [];
