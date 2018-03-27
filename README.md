@@ -2,7 +2,6 @@
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
-
 [Live demo](https://this-is-demo-only.firebaseapp.com)
 
 * [success demo](https://this-is-demo-only.firebaseapp.com?demo=success): Add query string "**?demo=success**" to simulate **server success** response(Promise resolve)
@@ -75,7 +74,7 @@ Go to browser: localhost:8080
 * Unit tests
 * Code refactor
 * Component reusabilities
-* Features: No Subject warning, edit existing email addresses
+* Features: No Subject warning, edit existing email addresses, delete highlight candidate
 
 ## License
 

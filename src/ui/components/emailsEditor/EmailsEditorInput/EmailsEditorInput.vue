@@ -16,31 +16,15 @@ export default {
   name: 'EmailsEditorInput',
   props: {
     isEditing: Boolean,
-    endEditing: Function,
-    startEditing: Function,
     emailInputConfig: Object,
     popEmail: Function,
-    addEmail: Function
+    processNewEmail: Function,
+    processNewEmailAndEndEditing: Function
   },
   data() {
     return {
       email: ''
     };
-  },
-  methods: {
-    processNewEmail(e) {
-      e.preventDefault();
-      this.startEditing();
-      this.email = e.target.value;
-      if (this.email.trim() !== '') {
-        this.addEmail(this.email);
-      }
-      this.email = '';
-    },
-    processNewEmailAndEndEditing(e) {
-      this.processNewEmail(e);
-      this.endEditing();
-    }
   },
   watch: {
     isEditing: function(val) {

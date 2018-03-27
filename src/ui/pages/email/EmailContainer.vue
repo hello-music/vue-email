@@ -26,8 +26,7 @@ import {
   UPDATE as UPDATE_CONTENT
 } from '../../../vuex/content';
 import Email from './Email.vue';
-// component
-/**************************************************/
+
 export default {
   name: 'EmailContainer',
   components: {

@@ -41,8 +41,7 @@ import EmailsEditorContainer from '../../components/emailsEditor/EmailsEditorCon
 import InputTitle from '../../components/InputTitle.vue';
 import EmailFormInputGroup from '../../components/EmailFormInputGroup.vue';
 import EmailHeaderContainer from './emailHeader/EmailHeaderContainer.vue';
-// component
-/**************************************************/
+
 export default {
   name: 'Email',
   components: {

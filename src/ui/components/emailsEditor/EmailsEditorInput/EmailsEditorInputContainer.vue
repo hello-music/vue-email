@@ -1,6 +1,6 @@
 <template>
     <EmailsEditorInput
-        v-bind="{isEditing, endEditing, startEditing, emailInputConfig, popEmail, addEmail}"
+        v-bind="{isEditing, emailInputConfig, popEmail, processNewEmail, processNewEmailAndEndEditing}"
     />
 </template>
 
@@ -41,7 +41,6 @@ export default {
   },
   data() {
     return {
-      email: '',
       emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 }
     };
   },
@@ -81,8 +80,23 @@ export default {
     addEmail(email) {
       this.getAddEmailFunc()(email);
     },
-    popEmail() {
-      this.getPopEmailFunc()();
+    popEmail({ target: { value } }) {
+      if (value === '') {
+        this.getPopEmailFunc()();
+      }
+    },
+    processNewEmail(e) {
+      e.preventDefault();
+      this.startEditing();
+      const email = e.target.value;
+      if (email.trim() !== '') {
+        this.addEmail(email);
+      }
+      e.target.value = '';
+    },
+    processNewEmailAndEndEditing(e) {
+      this.processNewEmail(e);
+      this.endEditing();
     }
   }
 };
