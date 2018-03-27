@@ -46,7 +46,7 @@ Highlights:
 
 ### 3rd Party Libs
 
-* vue-input-autowidth - **auto resize input directive**
+* autosize-input - **auto resize input**
 * basscss - **light weight low level css lib**
 
 ### Code Quality Control

@@ -16,5 +16,7 @@ export default {
 <style scoped>
 .email-form-input-group {
   border-bottom: 1px solid #eaeaea;
+  padding-bottom: 3px;
+  padding-top: 3px;
 }
 </style>

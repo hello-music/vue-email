@@ -1,12 +1,11 @@
 <template>
     <input
         type="email"
-        v-autowidth="emailInputConfig"
-        v-model="email"
         v-on:keyup.enter="processNewEmail"
         v-on:blur="processNewEmailAndEndEditing"
         v-on:keydown.tab="processNewEmail"
         v-on:keydown.delete="popEmail"
+        v-on:input="handleInputChange"
         ref="email"
     />
 </template>
@@ -19,12 +18,8 @@ export default {
     emailInputConfig: Object,
     popEmail: Function,
     processNewEmail: Function,
-    processNewEmailAndEndEditing: Function
-  },
-  data() {
-    return {
-      email: ''
-    };
+    processNewEmailAndEndEditing: Function,
+    handleInputChange: Function
   },
   watch: {
     isEditing: function(val) {

@@ -1,11 +1,12 @@
 <template>
     <EmailsEditorInput
-        v-bind="{isEditing, emailInputConfig, popEmail, processNewEmail, processNewEmailAndEndEditing}"
+        v-bind="{isEditing, emailInputConfig, popEmail, processNewEmail, processNewEmailAndEndEditing, handleInputChange}"
     />
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import autoSizeInput from 'autosize-input';
 import {
   MODULE_NAME as TO_MODULE,
   ADD as ADD_TO,
@@ -41,6 +42,7 @@ export default {
   },
   data() {
     return {
+      email: '',
       emailInputConfig: { maxWidth: '300px', minWidth: '20px', comfortZone: 0 }
     };
   },
@@ -87,9 +89,9 @@ export default {
     },
     processNewEmail(e) {
       e.preventDefault();
+      const email = e.target.value.trim();
       this.startEditing();
-      const email = e.target.value;
-      if (email.trim() !== '') {
+      if (email !== '') {
         this.addEmail(email);
       }
       e.target.value = '';
@@ -97,6 +99,9 @@ export default {
     processNewEmailAndEndEditing(e) {
       this.processNewEmail(e);
       this.endEditing();
+    },
+    handleInputChange({ srcElement }) {
+      autoSizeInput(srcElement);
     }
   }
 };
