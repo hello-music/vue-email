@@ -1,6 +1,6 @@
 <template>
     <EmailHeader
-        :readyToSend="isReady"
+        :readyToSend="allEmailsAreValid"
         :sendEmail="sendEmail"
     />
 </template>
@@ -24,18 +24,7 @@ export default {
     EmailHeader
   },
   computed: {
-    ...mapGetters(EMAIL_MODULE, [
-      'toEmailsAreAllValid',
-      'ccEmailsAreAllValid',
-      'bccEmailsAreAllValid'
-    ]),
-    isReady: function() {
-      return (
-        this.toEmailsAreAllValid &&
-        this.bccEmailsAreAllValid &&
-        this.ccEmailsAreAllValid
-      );
-    }
+    ...mapGetters(EMAIL_MODULE, ['allEmailsAreValid'])
   },
   methods: {
     sendEmail() {

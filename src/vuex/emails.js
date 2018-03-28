@@ -1,6 +1,14 @@
 import { insertAtIndex, isEmail, removeAtIndex } from '../helpers/helper';
 
 export const EMAIL_MODULE = 'emails';
+// helper
+/**************************************************/
+const areEmailsValid = emails =>
+  emails.filter(email => !isEmail(email)).length === 0;
+const validOptionalEmails = emails =>
+  emails.length === 0 || areEmailsValid(emails);
+const validRequiredEmails = emails =>
+  emails.length !== 0 && areEmailsValid(emails);
 // store state
 /**************************************************/
 const defaultState = {
@@ -16,12 +24,10 @@ const getters = {
   toEmails: ({ to }) => to,
   ccEmails: ({ cc }) => cc,
   bccEmails: ({ bcc }) => bcc,
-  bccEmailsAreAllValid: ({ bcc }) =>
-    bcc.length === 0 || bcc.filter(email => !isEmail(email)).length === 0,
-  ccEmailsAreAllValid: ({ cc }) =>
-    cc.length === 0 || cc.filter(email => !isEmail(email)).length === 0,
-  toEmailsAreAllValid: ({ to }) =>
-    to.length !== 0 && to.filter(email => !isEmail(email)).length === 0
+  allEmailsAreValid: ({ to, cc, bcc }) =>
+    validRequiredEmails(to) &&
+    validOptionalEmails(cc) &&
+    validOptionalEmails(bcc)
 };
 // actions
 /**************************************************/
