@@ -19,10 +19,10 @@ const getters = {
 };
 // actions
 /**************************************************/
-export const LOADING = 'loading';
-export const UPDATE_ERROR = 'updateError';
-export const UPDATE_SUCCESS = 'updateSuccess';
-export const RESET = 'reset';
+export const LOADING = '@ajax/loading';
+export const UPDATE_ERROR = '@ajax/updateError';
+export const UPDATE_SUCCESS = '@ajax/updateSuccess';
+export const RESET = '@ajax/reset';
 
 const actions = {
   [LOADING](context) {

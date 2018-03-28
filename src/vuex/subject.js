@@ -13,8 +13,8 @@ const getters = {
 };
 // actions
 /**************************************************/
-export const UPDATE_SUBJECT = 'update';
-export const RESET_SUBJECT = 'reset';
+export const UPDATE_SUBJECT = '@subject/update';
+export const RESET_SUBJECT = '@subject/reset';
 
 const actions = {
   [UPDATE_SUBJECT](context, subject) {

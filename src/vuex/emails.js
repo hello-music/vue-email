@@ -31,11 +31,11 @@ const getters = {
 };
 // actions
 /**************************************************/
-export const ADD_EMAIL = 'add';
-export const UPDATE_EMAIL = 'update';
-export const REMOVE_EMAIL = 'remove';
-export const POP_EMAIL = 'pop';
-export const RESET_EMAILS = 'reset';
+export const ADD_EMAIL = '@emails/add';
+export const UPDATE_EMAIL = '@emails/update';
+export const REMOVE_EMAIL = '@emails/remove';
+export const POP_EMAIL = '@emails/pop';
+export const RESET_EMAILS = '@emails/reset';
 
 const actions = {
   [ADD_EMAIL](context, { type, email }) {
