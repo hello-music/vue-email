@@ -4,10 +4,7 @@
         <Overlay v-if="loading">
             <Spinner />
         </Overlay>
-        <Overlay v-if="showSuccess">
-            <ServerMessage :title="serverMsg" :okButtonConfirmed="resetAjax" />
-        </Overlay>
-        <Overlay v-if="showError">
+        <Overlay v-if="serverMsg !== ''">
             <ServerMessage :title="serverMsg" :okButtonConfirmed="resetAjax" />
         </Overlay>
     </main>
@@ -27,8 +24,6 @@ export default {
   },
   props: {
     loading: Boolean,
-    showError: Boolean,
-    showSuccess: Boolean,
     error: String,
     resetAjax: Function,
     serverMsg: String

@@ -31,6 +31,7 @@ export default {
       if (this.showSuccess) {
         return msgMapping['success'];
       }
+      return '';
     }
   },
   methods: {
