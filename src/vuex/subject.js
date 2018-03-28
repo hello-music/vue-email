@@ -1,4 +1,4 @@
-export const MODULE_NAME = 'subject';
+export const SUBJECT_MODULE = 'subject';
 // store state
 /**************************************************/
 const defaultState = {
@@ -13,24 +13,24 @@ const getters = {
 };
 // actions
 /**************************************************/
-export const UPDATE = 'update';
-export const RESET = 'reset';
+export const UPDATE_SUBJECT = 'update';
+export const RESET_SUBJECT = 'reset';
 
 const actions = {
-  [UPDATE](context, subject) {
-    return context.commit(UPDATE, subject);
+  [UPDATE_SUBJECT](context, subject) {
+    return context.commit(UPDATE_SUBJECT, subject);
   },
-  [RESET](context) {
-    return context.commit(RESET);
+  [RESET_SUBJECT](context) {
+    return context.commit(RESET_SUBJECT);
   }
 };
 // mutations
 /**************************************************/
 const mutations = {
-  [UPDATE](state, subject) {
+  [UPDATE_SUBJECT](state, subject) {
     state.content = subject;
   },
-  [RESET](state) {
+  [RESET_SUBJECT](state) {
     state.content = '';
   }
 };

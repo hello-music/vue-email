@@ -7,27 +7,8 @@
 <script>
 import { mapActions } from 'vuex';
 import autoSizeInput from 'autosize-input';
-import {
-  MODULE_NAME as TO_MODULE,
-  ADD as ADD_TO,
-  POP as POP_TO
-} from '../../../../vuex/to';
-import {
-  MODULE_NAME as CC_MODULE,
-  ADD as ADD_CC,
-  POP as POP_CC
-} from '../../../../vuex/cc';
-import {
-  MODULE_NAME as BCC_MODULE,
-  ADD as ADD_BCC,
-  POP as POP_BCC
-} from '../../../../vuex/bcc';
+import { EMAIL_MODULE, ADD_EMAIL, POP_EMAIL } from '../../../../vuex/emails';
 import EmailsEditorInput from './EmailsEditorInput.vue';
-import {
-  BCC_EMAIL_TYPE,
-  CC_EMAIL_TYPE,
-  TO_EMAIL_TYPE
-} from '../../../../helpers/helper';
 
 export default {
   name: 'EmailsEditorInputContainer',
@@ -47,53 +28,22 @@ export default {
     };
   },
   methods: {
-    ...mapActions(TO_MODULE, {
-      addTo: ADD_TO,
-      popTo: POP_TO
-    }),
-    ...mapActions(CC_MODULE, {
-      addCc: ADD_CC,
-      popCc: POP_CC
-    }),
-    ...mapActions(BCC_MODULE, {
-      addBcc: ADD_BCC,
-      popBcc: POP_BCC
-    }),
-    getAddEmailFunc() {
-      switch (this.emailType) {
-        case TO_EMAIL_TYPE:
-          return this.addTo;
-        case CC_EMAIL_TYPE:
-          return this.addCc;
-        case BCC_EMAIL_TYPE:
-          return this.addBcc;
-      }
-    },
-    getPopEmailFunc() {
-      switch (this.emailType) {
-        case TO_EMAIL_TYPE:
-          return this.popTo;
-        case CC_EMAIL_TYPE:
-          return this.popCc;
-        case BCC_EMAIL_TYPE:
-          return this.popBcc;
-      }
-    },
-    addEmail(email) {
-      this.getAddEmailFunc()(email);
-    },
+    ...mapActions(EMAIL_MODULE, [ADD_EMAIL, POP_EMAIL]),
     popEmail({ target: { value } }) {
+      const { emailType: type } = this;
       this.startEditing();
       if (value === '') {
-        this.getPopEmailFunc()();
+        this[POP_EMAIL](type);
       }
     },
     processNewEmail(e) {
-      e.preventDefault();
+      const { emailType: type } = this;
       const email = e.target.value.trim();
+
+      e.preventDefault();
       this.startEditing();
       if (email !== '') {
-        this.addEmail(email);
+        this[ADD_EMAIL]({ type, email });
       }
       e.target.value = '';
     },

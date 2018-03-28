@@ -7,9 +7,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { MODULE_NAME as TO_MODULE } from '../../../../vuex/to';
-import { MODULE_NAME as CC_MODULE } from '../../../../vuex/cc';
-import { MODULE_NAME as BCC_MODULE } from '../../../../vuex/bcc';
+import { EMAIL_MODULE } from '../../../../vuex/emails';
 import EmailHeader from './EmailHeader.vue';
 import { ajaxSendEmail } from '../../../../services/email.service';
 import { fakeFail, fakeSuccess } from '../../../../helpers/ajax';
@@ -26,15 +24,11 @@ export default {
     EmailHeader
   },
   computed: {
-    ...mapGetters(TO_MODULE, {
-      toEmailsAreAllValid: 'toEmailsAreAllValid'
-    }),
-    ...mapGetters(CC_MODULE, {
-      ccEmailsAreAllValid: 'ccEmailsAreAllValid'
-    }),
-    ...mapGetters(BCC_MODULE, {
-      bccEmailsAreAllValid: 'bccEmailsAreAllValid'
-    }),
+    ...mapGetters(EMAIL_MODULE, [
+      'toEmailsAreAllValid',
+      'ccEmailsAreAllValid',
+      'bccEmailsAreAllValid'
+    ]),
     isReady: function() {
       return (
         this.toEmailsAreAllValid &&

@@ -6,25 +6,9 @@
 
 <script>
 import { mapActions } from 'vuex';
-import {
-  MODULE_NAME as TO_MODULE,
-  REMOVE as REMOVE_TO
-} from '../../../../vuex/to';
-import {
-  MODULE_NAME as CC_MODULE,
-  REMOVE as REMOVE_CC
-} from '../../../../vuex/cc';
-import {
-  MODULE_NAME as BCC_MODULE,
-  REMOVE as REMOVE_BCC
-} from '../../../../vuex/bcc';
+import { EMAIL_MODULE, REMOVE_EMAIL } from '../../../../vuex/emails';
 import EmailsEditorLabel from './EmailsEditorLabel.vue';
-import {
-  BCC_EMAIL_TYPE,
-  CC_EMAIL_TYPE,
-  isEmail,
-  TO_EMAIL_TYPE
-} from '../../../../helpers/helper';
+import { isEmail } from '../../../../helpers/helper';
 
 export default {
   name: 'EmailsEditorLabelContainer',
@@ -42,27 +26,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(TO_MODULE, {
-      removeTo: REMOVE_TO
-    }),
-    ...mapActions(CC_MODULE, {
-      removeCc: REMOVE_CC
-    }),
-    ...mapActions(BCC_MODULE, {
-      removeBcc: REMOVE_BCC
-    }),
-    getRemoveEmailFunc() {
-      switch (this.emailType) {
-        case TO_EMAIL_TYPE:
-          return this.removeTo;
-        case CC_EMAIL_TYPE:
-          return this.removeCc;
-        case BCC_EMAIL_TYPE:
-          return this.removeBcc;
-      }
-    },
+    ...mapActions(EMAIL_MODULE, [REMOVE_EMAIL]),
     removeEmail() {
-      this.getRemoveEmailFunc()(this.index);
+      const { emailType: type, index } = this;
+      this[REMOVE_EMAIL]({ type, index });
     }
   }
 };

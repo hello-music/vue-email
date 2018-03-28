@@ -14,17 +14,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { MODULE_NAME as TO_MODULE } from '../../../vuex/to';
-import { MODULE_NAME as CC_MODULE } from '../../../vuex/cc';
-import { MODULE_NAME as BCC_MODULE } from '../../../vuex/bcc';
-import {
-  MODULE_NAME as SUBJECT_MODULE,
-  UPDATE as UPDATE_SUBJECT
-} from '../../../vuex/subject';
-import {
-  MODULE_NAME as CONTENT_MODULE,
-  UPDATE as UPDATE_CONTENT
-} from '../../../vuex/content';
+import { EMAIL_MODULE } from '../../../vuex/emails';
+import { SUBJECT_MODULE, UPDATE_SUBJECT } from '../../../vuex/subject';
+import { CONTENT_MODULE, UPDATE_CONTENT } from '../../../vuex/content';
 import Email from './Email.vue';
 
 export default {
@@ -33,15 +25,7 @@ export default {
     Email
   },
   computed: {
-    ...mapGetters(TO_MODULE, {
-      toEmails: 'emails'
-    }),
-    ...mapGetters(CC_MODULE, {
-      ccEmails: 'emails'
-    }),
-    ...mapGetters(BCC_MODULE, {
-      bccEmails: 'emails'
-    }),
+    ...mapGetters(EMAIL_MODULE, ['toEmails', 'bccEmails', 'ccEmails']),
     ...mapGetters(SUBJECT_MODULE, ['subject']),
     ...mapGetters(CONTENT_MODULE, ['content'])
   },

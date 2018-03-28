@@ -1,4 +1,4 @@
-export const MODULE_NAME = 'content';
+export const CONTENT_MODULE = 'content';
 // store state
 /**************************************************/
 const defaultState = {
@@ -13,24 +13,24 @@ const getters = {
 };
 // actions
 /**************************************************/
-export const UPDATE = 'update';
-export const RESET = 'reset';
+export const UPDATE_CONTENT = 'update';
+export const RESET_CONTENT = 'reset';
 
 const actions = {
-  [UPDATE](context, content) {
-    return context.commit(UPDATE, content);
+  [UPDATE_CONTENT](context, content) {
+    return context.commit(UPDATE_CONTENT, content);
   },
-  [RESET](context) {
-    return context.commit(RESET);
+  [RESET_CONTENT](context) {
+    return context.commit(RESET_CONTENT);
   }
 };
 // mutations
 /**************************************************/
 const mutations = {
-  [UPDATE](state, content) {
+  [UPDATE_CONTENT](state, content) {
     state.content = content;
   },
-  [RESET](state) {
+  [RESET_CONTENT](state) {
     state.content = '';
   }
 };
